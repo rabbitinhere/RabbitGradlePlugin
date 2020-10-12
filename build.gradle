@@ -1,0 +1,37 @@
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'maven'
+
+}
+//apply plugin: 'maven'
+
+group 'com.rabbit'
+version '1.1-SNAPSHOT'
+
+uploadArchives{
+    repositories.mavenDeployer{
+        repository(url: "change to your url"){
+            authentication(userName: 'change to your name', password: 'change to your pwd')
+        }
+        snapshotRepository(url: "change to your url") {
+            authentication(userName: 'change to your name', password: 'change to your pwd')
+        }
+        pom.groupId = "com.rabbit"// 唯一标识（通常为模块包名，也可以任意）
+        pom.artifactId = "RabbitGradlePlugin" // 项目名称（通常为类库模块名称，也可以任意）
+        pom.version = '1.1-SNAPSHOT' // 版本号
+    }
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+//    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    implementation localGroovy()
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
