@@ -5,7 +5,7 @@ In client project which use this plugin, add this code in root build.gradle
 ```
 buildscript {
     repositories {
-        maven { url 'http://10.2.3.228:8081/nexus/content/repositories/snapshots/'}
+        maven { url 'your nexus url'}
     }
     dependencies {
         classpath "com.rabbit:RabbitGradlePlugin:1.1-SNAPSHOT"
